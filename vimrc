@@ -22,6 +22,10 @@ Bundle 'ervandew/supertab'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'jpalardy/vim-slime'
 " vim-scripts repos
+Bundle 'rdark-terminal'
+Bundle 'rdark'
+Bundle 'Zenburn'
+Bundle 'wombat'
 Bundle 'L9'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
@@ -193,7 +197,8 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-colorscheme solarized
+"colorscheme solarized
+colorscheme zenburn
 
 
 " Status Line *****************************************************************

@@ -21,11 +21,15 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'jpalardy/vim-slime'
+Bundle 'majutsushi/tagbar'
 " vim-scripts repos
+"
+Bundle 'closetag.vim'
+Bundle 'fugitive.vim'
+Bundle 'Align'
 Bundle 'rdark-terminal'
 Bundle 'rdark'
 Bundle 'Zenburn'
-Bundle 'wombat'
 Bundle 'L9'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
@@ -35,8 +39,9 @@ Bundle 'VimOutliner'
 Bundle 'vimoutliner-colorscheme-fix'
 Bundle 'surround.vim'
 Bundle 'VimClojure'
-Bundle 'Tagbar'
+"Bundle 'Tagbar'
 Bundle 'snipMate'
+Bundle 'EasyMotion'
 "Bundle 'snipmate-snippets'
 Bundle 'gitv'
 Bundle 'paredit.vim'
@@ -52,6 +57,7 @@ filetype plugin indent on     " required!
 
 set wildmode=longest,list,full
 set wildmenu
+autocmd FileType mkd :set nofoldenable
 
 function! RepeatChar(char, count)
    return repeat(a:char, a:count)
@@ -197,8 +203,8 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-"colorscheme solarized
-colorscheme zenburn
+colorscheme solarized
+"colorscheme zenburn
 
 
 " Status Line *****************************************************************
@@ -321,8 +327,8 @@ let g:paredit_mode = 0
 
 " CloseTag  ********************************************************************
 " configure CloseTag to only load for html/xml like files
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+"autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+"autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 
 " Fugitive  ********************************************************************

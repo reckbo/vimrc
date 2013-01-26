@@ -22,6 +22,9 @@ Bundle 'ervandew/supertab'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'jpalardy/vim-slime'
 Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-foreplay.git'
+Bundle 'tpope/vim-classpath.git'
+Bundle 'guns/vim-clojure-static.git'
 " vim-scripts repos
 "
 Bundle 'closetag.vim'
@@ -38,7 +41,7 @@ Bundle 'nerdtree-ack'
 Bundle 'VimOutliner'
 Bundle 'vimoutliner-colorscheme-fix'
 Bundle 'surround.vim'
-Bundle 'VimClojure'
+"Bundle 'VimClojure'
 "Bundle 'Tagbar'
 Bundle 'snipMate'
 Bundle 'EasyMotion'
@@ -75,7 +78,9 @@ augroup END
 cmap !! w !sudo tee % >/dev/null
 
 let mapleader = ","
+let maplocalleader = ","
 let g:mapleader = ","
+let g:maplocalleader = ","
 nnoremap <space> 10jzz
 nnoremap <backspace> 10kzz
 nmap <leader><leader>w :w!<cr>
@@ -203,8 +208,8 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-colorscheme solarized
-"colorscheme zenburn
+"colorscheme solarized
+colorscheme zenburn
 
 
 " Status Line *****************************************************************
@@ -400,11 +405,21 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 
 
 
-" -----------------------------------------------------------------------------
-" |                               Startup                                     |
-" -----------------------------------------------------------------------------
-" Open NERDTree on start
-"autocmd VimEnter * exe 'NERDTree' | wincmd l
+let g:tagbar_type_clojure = {
+    \ 'ctagstype': 'Clojure',
+    \ 'kinds' : [
+        \ 'n:namespace',
+        \ 'd:definitions',
+        \ 'f:functions',
+        \ 'm:macro',
+        \ 'i:inline',
+        \ 'a:multimethod definition',
+        \ 'b:multimethod instance',
+        \ 'c:definition (once)',
+        \ 's:struct',
+        \ 'v:intern',
+    \ ]
+    \ }
 
 
 

@@ -10,30 +10,24 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
 " original repos on github
 Bundle 'tpope/vim-fugitive'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'jpalardy/vim-slime'
 Bundle 'majutsushi/tagbar'
-Bundle 'tpope/vim-foreplay.git'
+Bundle 'tpope/vim-fireplace.git'
 Bundle 'tpope/vim-classpath.git'
 Bundle 'guns/vim-clojure-static.git'
 " vim-scripts repos
-"
-Bundle 'closetag.vim'
-Bundle 'fugitive.vim'
+" git
+Bundle 'fugitive.vim'  
 Bundle 'Align'
 Bundle 'rdark-terminal'
 Bundle 'rdark'
 Bundle 'Zenburn'
-Bundle 'L9'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'ack.vim'
@@ -41,20 +35,13 @@ Bundle 'nerdtree-ack'
 Bundle 'VimOutliner'
 Bundle 'vimoutliner-colorscheme-fix'
 Bundle 'surround.vim'
-"Bundle 'VimClojure'
-"Bundle 'Tagbar'
 Bundle 'snipMate'
-Bundle 'EasyMotion'
-"Bundle 'snipmate-snippets'
 Bundle 'gitv'
+" lisp syntax
 Bundle 'paredit.vim'
+" mappings
 Bundle 'unimpaired.vim'
-Bundle 'ctrlp.vim'
 Bundle 'repeat.vim'
-"Bundle 'Conque-Shell'
-" non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
-" ...
 
 filetype plugin indent on     " required!
 
@@ -69,7 +56,7 @@ function! RepeatChar(char, count)
  "nnoremap s :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
 autocmd BufWritePre *.py :%s/\s\+$//e
-"au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.md set filetype=mkd
 augroup SetCMS
     autocmd FileType vo_base let &l:commentstring=': %s'
 augroup END
@@ -90,7 +77,7 @@ nmap <leader><leader>q :q!<cr>
 nmap <leader>x :close<cr>
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 "set winheight=9999
-autocmd BufEnter * lcd %:p:h
+"autocmd BufEnter * lcd %:p:h
 autocmd! bufwritepost .vimrc source ~/.vimrc
 hi LineNr guifg=#333333
 :nmap <c-n><c-n> :set invnumber <cr>
@@ -209,7 +196,8 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 "colorscheme solarized
-colorscheme zenburn
+"colorscheme zenburn
+colorscheme rdark
 
 
 " Status Line *****************************************************************

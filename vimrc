@@ -1,7 +1,7 @@
 set nocompatible  " be iMproved
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 "call pathogen#helptags()
 "call pathogen#runtime_append_all_bundles()
@@ -9,39 +9,39 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 " original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
-Bundle 'majutsushi/tagbar'
-Bundle 'tpope/vim-fireplace.git'
-Bundle 'tpope/vim-classpath.git'
-Bundle 'guns/vim-clojure-static.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fireplace.git'
+Plugin 'tpope/vim-classpath.git'
+Plugin 'guns/vim-clojure-static.git'
 " vim-scripts repos
 " git
-Bundle 'fugitive.vim'  
-Bundle 'Align'
-Bundle 'rdark-terminal'
-Bundle 'rdark'
-Bundle 'Zenburn'
-Bundle 'The-NERD-tree'
-Bundle 'The-NERD-Commenter'
-Bundle 'ack.vim'
-Bundle 'nerdtree-ack'
-Bundle 'VimOutliner'
-Bundle 'vimoutliner-colorscheme-fix'
-Bundle 'surround.vim'
-Bundle 'snipMate'
-Bundle 'gitv'
+Plugin 'fugitive.vim'  
+Plugin 'Align'
+Plugin 'rdark-terminal'
+Plugin 'rdark'
+Plugin 'Zenburn'
+Plugin 'The-NERD-tree'
+Plugin 'The-NERD-Commenter'
+Plugin 'ack.vim'
+Plugin 'nerdtree-ack'
+Plugin 'VimOutliner'
+Plugin 'vimoutliner-colorscheme-fix'
+Plugin 'surround.vim'
+Plugin 'snipMate'
+Plugin 'gitv'
 " lisp syntax
-Bundle 'paredit.vim'
+Plugin 'paredit.vim'
 " mappings
-Bundle 'unimpaired.vim'
-Bundle 'repeat.vim'
+Plugin 'unimpaired.vim'
+Plugin 'repeat.vim'
 
 filetype plugin indent on     " required!
 

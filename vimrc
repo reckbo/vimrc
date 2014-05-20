@@ -10,7 +10,6 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Plugin 'gmarik/Vundle.vim'
-" original repos on github
 Plugin 'tpope/vim-fugitive'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Lokaltog/vim-easymotion'
@@ -21,8 +20,10 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fireplace.git'
 Plugin 'tpope/vim-classpath.git'
 Plugin 'guns/vim-clojure-static.git'
-" vim-scripts repos
-" git
+Plugin 'flazz/vim-colorschemes'
+Plugin 'nanotech/jellybeans.vim'
+"Plugin 'garbase/vim-snipmate.vim'
+"Plugin 'vimoutliner/vimoutliner'
 Plugin 'fugitive.vim'  
 Plugin 'Align'
 Plugin 'rdark-terminal'
@@ -32,13 +33,11 @@ Plugin 'The-NERD-tree'
 Plugin 'The-NERD-Commenter'
 Plugin 'ack.vim'
 Plugin 'nerdtree-ack'
-Plugin 'VimOutliner'
+Plugin 'vimoutliner'
 Plugin 'vimoutliner-colorscheme-fix'
 Plugin 'surround.vim'
-Plugin 'snipMate'
 Plugin 'gitv'
-" lisp syntax
-Plugin 'paredit.vim'
+Plugin 'paredit.vim' " lisp syntax
 " mappings
 Plugin 'unimpaired.vim'
 Plugin 'repeat.vim'
@@ -58,7 +57,7 @@ function! RepeatChar(char, count)
 autocmd BufWritePre *.py :%s/\s\+$//e
 au BufNewFile,BufRead *.md set filetype=mkd
 augroup SetCMS
-    autocmd FileType vo_base let &l:commentstring=': %s'
+    autocmd FileType votl let &l:commentstring=": %s"
 augroup END
 
 " Lets you save after you open a file that needs sudo
@@ -188,16 +187,12 @@ nmap <silent> ,/ :nohlsearch<CR>
 "set t_Co=256 " 256 colors
 set background=dark
 syntax on " syntax highlighting
-"colorscheme ir_black
-"colorscheme molokai
-"colorscheme koehler
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 "colorscheme solarized
-"colorscheme zenburn
-colorscheme rdark
+colorscheme jellybeans
 
 
 " Status Line *****************************************************************
@@ -242,7 +237,7 @@ filetype plugin indent on
 " To show current filetype use: set filetype
 
 "autocmd FileType html :set filetype=xhtml
-autocmd FileType vo_base :colorscheme vo_dark
+"autocmd FileType vo_base :colorscheme vo_dark
 
 
 " Inser New Line **************************************************************
@@ -343,7 +338,8 @@ nnoremap <leader>l :TagbarToggle<CR>
 
 
 " SuperTab ********************************************************************
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<c-x><c-f>"
+"let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabLongestHighlight = 0
 let g:SuperTabLongestEnhanced = 1
 let g:SuperTabCrMapping = 1

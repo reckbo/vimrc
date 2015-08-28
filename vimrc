@@ -6,41 +6,43 @@ call vundle#rc()
 "call pathogen#helptags()
 "call pathogen#runtime_append_all_bundles()
 
-
-" let Vundle manage Vundle
-" required! 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
+Plugin 'gmarik/Vundle.vim' " required! 
+" Specific files/coding
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} 
 Plugin 'plasticboy/vim-markdown'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
+" Git
+Plugin 'gitv'
+Plugin 'tpope/vim-fugitive' " git
+" REPLS
 Plugin 'tpope/vim-fireplace.git'
 Plugin 'tpope/vim-classpath.git'
-Plugin 'guns/vim-clojure-static.git'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'nanotech/jellybeans.vim'
-"Plugin 'garbase/vim-snipmate.vim'
-"Plugin 'vimoutliner/vimoutliner'
-Plugin 'fugitive.vim'  
+" Files
+Plugin 'will133/vim-dirdiff'
+Plugin 'The-NERD-tree'
+Plugin 'ctrlp.vim'
+Plugin 'ack.vim'
+Plugin 'nerdtree-ack'
+" Navigation 
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'matchit.zip'
+" Editing
+Plugin 'ervandew/supertab'
 Plugin 'Align'
+Plugin 'The-NERD-Commenter'
+Plugin 'surround.vim'
+Plugin 'paredit.vim' " lisp syntax
+Plugin 'repeat.vim'
+" Colors
+Plugin 'molokai'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'rdark-terminal'
 Plugin 'rdark'
 Plugin 'Zenburn'
-Plugin 'The-NERD-tree'
-Plugin 'The-NERD-Commenter'
-Plugin 'ack.vim'
-Plugin 'nerdtree-ack'
+" Vimoutliner
 Plugin 'vimoutliner'
 Plugin 'vimoutliner-colorscheme-fix'
-Plugin 'surround.vim'
-Plugin 'gitv'
-Plugin 'paredit.vim' " lisp syntax
-" mappings
-Plugin 'unimpaired.vim'
-Plugin 'repeat.vim'
 
 filetype plugin indent on     " required!
 
@@ -56,6 +58,7 @@ function! RepeatChar(char, count)
 
 autocmd BufWritePre *.py :%s/\s\+$//e
 au BufNewFile,BufRead *.md set filetype=mkd
+au BufNewFile,BufRead *.do set filetype=sh
 augroup SetCMS
     autocmd FileType votl let &l:commentstring=": %s"
 augroup END

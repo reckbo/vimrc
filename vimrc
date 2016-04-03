@@ -84,8 +84,10 @@ hi LineNr guifg=#333333
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 nnoremap <leader>; :
-:nnoremap <leader><leader>d "=strftime("%a %d %b %Y %H:%M:%S")<CR>P
-:inoremap <leader><leader>d <C-R>=strftime("%a %d %b %Y %H:%M:%S")<CR>
+":nnoremap <leader><leader>d "=strftime("%a %d %b %Y %H:%M:%S")<CR>P
+":inoremap <leader><leader>d <C-R>=strftime("%a %d %b %Y %H:%M:%S")<CR>
+:nnoremap <leader><leader>d "=strftime("%Y-%m-%d %H:%M")<CR>P
+:inoremap <leader><leader>d <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
 " HTML
 " fold tag
@@ -238,6 +240,8 @@ filetype plugin indent on
 
 "autocmd FileType html :set filetype=xhtml
 "autocmd FileType vo_base :colorscheme vo_dark
+au BufNewFile,BufRead *.gradle set filetype=groovy
+au BufNewFile,BufRead *.j set filetype=j
 
 
 " Inser New Line **************************************************************

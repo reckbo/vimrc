@@ -11,3 +11,7 @@ else
 fi
 
 vim +PluginInstall +qall
+
+# Todo
+# add make in vimproc/
+# install snippets

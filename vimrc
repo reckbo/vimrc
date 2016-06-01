@@ -35,8 +35,8 @@ Plugin 'surround.vim'
 Plugin 'repeat.vim'
 "Plugin 'paredit.vim' " lisp syntax
 """ Vimoutliner
-Plugin 'vimoutliner'
-Plugin 'vimoutliner-colorscheme-fix'
+"Plugin 'vimoutliner'
+"Plugin 'vimoutliner-colorscheme-fix'
 """ Look
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'molokai'
@@ -51,7 +51,7 @@ filetype plugin indent on
 
 " ********************************************************************
 " Settings
-set clipboard=unnamedplus,autoselect
+"set clipboard=unnamedplus,autoselect
 set wildmode=longest,list,full
 set wildmenu
 set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
@@ -165,6 +165,8 @@ nnoremap <space> 10jzz
 nnoremap <backspace> 10kzz
 nmap <leader><leader>w :w!<cr>
 nmap <leader>w <c-w>
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
 nmap <leader>q :q<cr>
 nmap <leader><leader>q :q!<cr>
 nmap <leader>x :close<cr>
@@ -174,6 +176,7 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e ~/.vimrc<cr>
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 nnoremap <leader>; :
+nnoremap <leader>1 :!
 ":nnoremap <leader><leader>d "=strftime("%a %d %b %Y %H:%M:%S")<CR>P
 ":inoremap <leader><leader>d <C-R>=strftime("%a %d %b %Y %H:%M:%S")<CR>
 :nnoremap <leader><leader>d "=strftime("%Y-%m-%d %H:%M")<CR>P
@@ -196,6 +199,10 @@ map <down> gj
 map j gj
 imap <down> <C-o>gj
 map E ge
+nmap [l :lnext<cr>
+nmap ]l :lprevious<cr>
+nmap [c :cnext<cr>
+nmap ]c :cprevious<cr>
 """ Misc
 set backspace=indent,eol,start
 set number " Show line numbers
@@ -247,4 +254,34 @@ endfunction
 "call Tabstyle_spaces()
 call Tabstyle_tabs()
 
-
+" ************************************************************************
+" haskell for tagbar
+if executable('lushtags')
+    let g:tagbar_type_haskell = {
+            \ 'ctagsbin' : 'lushtags',
+            \ 'ctagsargs' : '--ignore-parse-error --',
+            \ 'kinds' : [
+                \ 'm:module:0',
+                \ 'e:exports:1',
+                \ 'i:imports:1',
+                \ 't:declarations:0',
+                \ 'd:declarations:1',
+                \ 'n:declarations:1',
+                \ 'f:functions:0',
+                \ 'c:constructors:0'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+                \ 'd' : 'data',
+                \ 'n' : 'newtype',
+                \ 'c' : 'constructor',
+                \ 't' : 'type'
+            \ },
+            \ 'scope2kind' : {
+                \ 'data' : 'd',
+                \ 'newtype' : 'n',
+                \ 'constructor' : 'c',
+                \ 'type' : 't'
+            \ }
+        \ }
+endif

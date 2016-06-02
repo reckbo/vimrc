@@ -25,13 +25,13 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ack.vim'
 Plugin 'nerdtree-ack'
 """ Navigation
-Plugin 'Lokaltog/vim-easymotion'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'matchit.zip'
 """ Editing
 Plugin 'ervandew/supertab'
 Plugin 'Tabular'
 Plugin 'The-NERD-Commenter'
-Plugin 'surround.vim'
+Plugin 'tpope/vim-surround'
 Plugin 'repeat.vim'
 "Plugin 'paredit.vim' " lisp syntax
 """ Vimoutliner
@@ -46,6 +46,7 @@ Plugin 'rdark-terminal'
 Plugin 'rdark'
 Plugin 'Zenburn'
 Plugin 'reckbo/haskell-syntax.vim'
+Plugin 'vim-scripts/wombat256.vim'
 
 filetype plugin indent on
 
@@ -102,10 +103,10 @@ set nobackup
 set noswapfile
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 """ File Types
-augroup SetCMS
-    autocmd FileType votl let &l:commentstring=": %s"
-augroup END
-autocmd BufEnter * lcd %:p:h " Sets path to directory buffer was loaded from
+"augroup SetCMS
+    "autocmd FileType votl let &l:commentstring=": %s"
+"augroup END
+"autocmd BufEnter *.* lcd %:p:h " Sets path to directory buffer was loaded from
 autocmd FileType mkd :set nofoldenable
 autocmd BufWritePre *.py :%s/\s\+$//e
 au BufNewFile,BufRead *.md set filetype=mkd
@@ -141,7 +142,7 @@ vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
 """ Ctrl-p
-map <silent> <Leader>t :CtrlP()<CR>
+map <silent> <Leader>p :CtrlP()<CR>
 noremap <leader>b<space> :CtrlPBuffer<cr>
 let g:ctrlp_custom_ignore = '\v[\/]dist$'
 """ ghc-mod
@@ -150,7 +151,7 @@ map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 """ Syntastic
-map <Leader>s :SyntasticToggleMode<CR>
+"map <Leader>s :SyntasticToggleMode<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -161,13 +162,24 @@ let g:syntastic_check_on_wq = 0
 
 " ********************************************************************
 " Shortcuts
+nnoremap b :ls<CR>:b<Space>
 nnoremap <space> 10jzz
 nnoremap <backspace> 10kzz
-nmap <leader><leader>w :w!<cr>
-nmap <leader>w <c-w>
-nmap <c-h> <c-w>h
-nmap <c-l> <c-w>l
+"nmap <leader><leader>w :w!<cr>
+"""Window and neovim terminal
+"nmap <leader>w <c-w>
+"tnoremap <Esc> <C-\><C-n>
+"tnoremap <c-h> <C-\><C-n><C-w>h
+"tnoremap <c-j> <C-\><C-n><C-w>j
+"tnoremap <c-k> <C-\><C-n><C-w>k
+"tnoremap <c-l> <C-\><C-n><C-w>l
+nmap <c-h> <C-w>h
+nmap <c-j> <C-w>j
+nmap <c-k> <C-w>k
+nmap <c-l> <C-w>l
+"
 nmap <leader>q :q<cr>
+nmap <leader>w :w<cr>
 nmap <leader><leader>q :q!<cr>
 nmap <leader>x :close<cr>
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -216,7 +228,17 @@ set listchars=trail:.,tab:>-,eol:$
 """ NERDTree
 :noremap ,n :NERDTreeToggle<CR>
 """ TagBar  
-nnoremap <leader>l :TagbarToggle<CR>
+nnoremap <leader>t :TagbarToggle<CR>
+"""easy motion
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0
+nmap s <Plug>(easymotion-s)
+"nmap s <Plug>(easymotion-overwin-f)
+nmap t <Plug>(easymotion-t2)
+let g:EasyMotion_smartcase = 1
 
 " autocomplpop ***************************************************************
 " complete option
